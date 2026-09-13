@@ -1,0 +1,1241 @@
+{
+  "BilledCost": {
+    "column_id": "BilledCost",
+    "file_name": "billedcost.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Billed Cost",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "Decimal",
+    "value_format": "[Numeric Format](#attributes.numericformat)",
+    "column_type": "Metric",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "BilledCost MUST be of type Decimal.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BilledCost MUST conform to [NumericFormat](#attributes.numericformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BilledCost MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BilledCost MUST be denominated in the BillingCurrency.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BilledCost MUST reflect all applicable pricing adjustments, including but not limited to *negotiated discounts*, *commitment discounts*, and other applicable discount programs.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BilledCost MUST NOT include any portion of a covered charge that is offset by a covering charge.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BilledCost MUST be 0 for *charges* that are fully *covered* by one or more *covering charges*.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "The sum of BilledCost for a given [InvoiceDetailId](#datasets.invoicedetail.invoicedetailid), [InvoiceId](#datasets.invoicedetail.invoiceid), and [InvoiceIssuerName](#datasets.invoicedetail.invoiceissuername) MUST be equal to the payable amount provided in the corresponding entries on the issued invoice when [InvoiceIssueStatus](#datasets.invoicedetail.invoiceissuestatus) is \"Issued\".",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "When comparing BilledCost aggregated by [InvoiceId](#datasets.invoicedetail.invoiceid) and [InvoiceIssuerName](#datasets.invoicedetail.invoiceissuername) with [CostAndUsage.BilledCost](#datasets.costandusage.billedcost) aggregated by [CostAndUsage.InvoiceId](#datasets.costandusage.invoiceid) and [CostAndUsage.InvoiceIssuerName](#datasets.costandusage.invoiceissuername), BilledCost MUST adhere to the following requirements:",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "When [ChargeCategory](#datasets.invoicedetail.chargecategory) is not \"Tax\" and [InvoiceIssueStatus](#datasets.invoicedetail.invoiceissuestatus) is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of [CostAndUsage.BilledCost](#datasets.costandusage.billedcost) by more than `MAX(100 \u00d7 Subunit, (SQRT(Rows) \u00d7 0.5) \u00d7 Subunit)` as defined in [Rounding Variance Tolerance](#appendix.roundingvariancetolerance).",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "When [ChargeCategory](#datasets.invoicedetail.chargecategory) is \"Tax\" or [InvoiceIssueStatus](#datasets.invoicedetail.invoiceissuestatus) is \"Open\", the sum of BilledCost MAY differ from the sum of [CostAndUsage.BilledCost](#datasets.costandusage.billedcost).",
+        "severity": "INFO",
+        "indent": 2
+      },
+      {
+        "text": "When comparing BilledCost aggregated by [InvoiceDetailId](#datasets.invoicedetail.invoicedetailid), [InvoiceId](#datasets.invoicedetail.invoiceid), and [InvoiceIssuerName](#datasets.invoicedetail.invoiceissuername) with [CostAndUsage.BilledCost](#datasets.costandusage.billedcost) aggregated by [CostAndUsage.InvoiceDetailId](#datasets.costandusage.invoicedetailid), [CostAndUsage.InvoiceId](#datasets.costandusage.invoiceid), and [CostAndUsage.InvoiceIssuerName](#datasets.costandusage.invoiceissuername), BilledCost MUST adhere to the following requirements:",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "When [InvoiceIssueStatus](#datasets.invoicedetail.invoiceissuestatus) is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of [CostAndUsage.BilledCost](#datasets.costandusage.billedcost) by more than `MAX(100 \u00d7 Subunit, (SQRT(Rows) \u00d7 0.5) \u00d7 Subunit)` as defined in [Rounding Variance Tolerance](#appendix.roundingvariancetolerance).",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "When [InvoiceIssueStatus](#datasets.invoicedetail.invoiceissuestatus) is \"Open\", the sum of BilledCost MAY differ from the sum of [CostAndUsage.BilledCost](#datasets.costandusage.billedcost).",
+        "severity": "INFO",
+        "indent": 2
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/billedcost.md"
+  },
+  "BillingAccountId": {
+    "column_id": "BillingAccountId",
+    "file_name": "billingaccountid.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Billing Account ID",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "BillingAccountId MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingAccountId MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingAccountId MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingAccountId MUST be a unique identifier within an invoice issuer.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingAccountId SHOULD be a fully-qualified identifier.",
+        "severity": "WARN",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/billingaccountid.md"
+  },
+  "BillingCurrency": {
+    "column_id": "BillingCurrency",
+    "file_name": "billingcurrency.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Billing Currency",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "[Currency Format](#attributes.currencyformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "BillingCurrency MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingCurrency MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingCurrency MUST conform to [CurrencyFormat](#attributes.currencyformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingCurrency MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingCurrency MUST match the currency used in the invoice generated by the invoice issuer.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingCurrency MUST be expressed in national currency (e.g., USD, EUR).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/billingcurrency.md"
+  },
+  "BillingPeriodEnd": {
+    "column_id": "BillingPeriodEnd",
+    "file_name": "billingperiodend.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Billing Period End",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "Date/Time",
+    "value_format": "[Date/Time Format](#attributes.date/timeformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "BillingPeriodEnd MUST be of type Date/Time.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodEnd MUST conform to [DateTimeFormat](#attributes.date/timeformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodEnd MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodEnd MUST be the *exclusive end bound* of the *billing period*.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodEnd for a given [InvoiceId](#datasets.invoicedetail.invoiceid) and [InvoiceIssuerName](#datasets.invoicedetail.invoiceissuername) MUST match [CostAndUsage.BillingPeriodEnd](#datasets.costandusage.billingperiodend) for the same [CostAndUsage.InvoiceId](#datasets.costandusage.invoiceid) and [CostAndUsage.InvoiceIssuerName](#datasets.costandusage.invoiceissuername).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/billingperiodend.md"
+  },
+  "BillingPeriodStart": {
+    "column_id": "BillingPeriodStart",
+    "file_name": "billingperiodstart.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Billing Period Start",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "Date/Time",
+    "value_format": "[Date/Time Format](#attributes.date/timeformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "BillingPeriodStart MUST be of type Date/Time.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodStart MUST conform to [DateTimeFormat](#attributes.date/timeformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodStart MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodStart MUST be the *inclusive start bound* of the *billing period*.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "BillingPeriodStart for a given [InvoiceId](#datasets.invoicedetail.invoiceid) and [InvoiceIssuerName](#datasets.invoicedetail.invoiceissuername) MUST match [CostAndUsage.BillingPeriodStart](#datasets.costandusage.billingperiodstart) for the same [CostAndUsage.InvoiceId](#datasets.costandusage.invoiceid) and [CostAndUsage.InvoiceIssuerName](#datasets.costandusage.invoiceissuername).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/billingperiodstart.md"
+  },
+  "ChargeCategory": {
+    "column_id": "ChargeCategory",
+    "file_name": "chargecategory.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Charge Category",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "Allowed values",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [
+      "Usage",
+      "Purchase",
+      "Tax",
+      "Credit",
+      "Adjustment"
+    ],
+    "allowed_value_header": [
+      "Value",
+      "Description"
+    ],
+    "allowed_value_rows": [
+      [
+        "Usage",
+        "Positive or negative *charges* based on the quantity of a service or resource that was consumed over a given period of time including refunds."
+      ],
+      [
+        "Purchase",
+        "Positive or negative *charges* for the acquisition of a service or resource bought upfront or on a recurring basis including refunds."
+      ],
+      [
+        "Tax",
+        "Positive or negative applicable taxes that are levied by the relevant authorities including refunds. Tax *charges* may vary depending on factors such as the location, jurisdiction, and local or federal regulations."
+      ],
+      [
+        "Credit",
+        "Positive or negative *charges* granted by the service provider for various scenarios (e.g., promotional credits, corrections to promotional credits)."
+      ],
+      [
+        "Adjustment",
+        "Positive or negative *charges* the service provider applies that do not fall into other category values."
+      ]
+    ],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "ChargeCategory MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ChargeCategory MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ChargeCategory MUST be one of the allowed values.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "When the *charge* does not aggregate multiple classifications, ChargeCategory MUST adhere to the following requirements:",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ChargeCategory MUST be \"Usage\" when the *charge* represents consumption of a service or resource.",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "ChargeCategory MUST be \"Purchase\" when the *charge* represents acquisition of a service, resource, or *commitment*.",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "ChargeCategory MUST be \"Tax\" when the *charge* represents taxes levied by the relevant authorities.",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "ChargeCategory MUST be \"Credit\" when the *charge* represents a financial incentive or allowance unrelated to other *charges*.",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "ChargeCategory MUST be \"Adjustment\" when the *charge* represents a billing modification that does not fall into other ChargeCategories.",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "When the *charge* aggregates multiple classifications, ChargeCategory MUST adhere to the following requirements:",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ChargeCategory MAY be \"Usage\" when the record aggregates *charges* across multiple allowed values other than \"Tax\" (e.g., aggregation of \"Usage\" and \"Credit\" is allowed, but not \"Usage\" and \"Tax\").",
+        "severity": "INFO",
+        "indent": 2
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/chargecategory.md"
+  },
+  "InvoiceDetailCreated": {
+    "column_id": "InvoiceDetailCreated",
+    "file_name": "invoicedetailcreated.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Detail Created",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "Date/Time",
+    "value_format": "[Date/Time Format](#attributes.date/timeformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceDetailCreated MUST be of type Date/Time.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailCreated MUST conform to [DateTimeFormat](#attributes.date/timeformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailCreated MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailCreated MUST represent the moment in time the Invoice Detail record was instantiated.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailCreated for a given [BillingPeriodStart](#datasets.invoicedetail.billingperiodstart) and [InvoiceIssuerName](#datasets.invoicedetail.invoiceissuername) MUST be earlier than or equal to [BillingPeriod.BillingPeriodLastUpdated](#datasets.billingperiod.billingperiodlastupdated) for the same [BillingPeriod.BillingPeriodStart](#datasets.billingperiod.billingperiodstart) and [BillingPeriod.InvoiceIssuerName](#datasets.billingperiod.invoiceissuername) when [BillingPeriod.BillingPeriodStatus](#datasets.billingperiod.billingperiodstatus) is \"Closed\".",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoicedetailcreated.md"
+  },
+  "InvoiceDetailDescription": {
+    "column_id": "InvoiceDetailDescription",
+    "file_name": "invoicedetaildescription.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Detail Description",
+    "feature_level": "Mandatory",
+    "allows_nulls": "True",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceDetailDescription MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailDescription MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailDescription SHOULD NOT be null.",
+        "severity": "WARN",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailDescription maximum length SHOULD be provided in the corresponding FOCUS Metadata Schema.",
+        "severity": "WARN",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailDescription MUST describe the charges represented by the [InvoiceDetailId](#datasets.invoicedetail.invoicedetailid).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoicedetaildescription.md"
+  },
+  "InvoiceDetailGrain": {
+    "column_id": "InvoiceDetailGrain",
+    "file_name": "invoicedetailgrain.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Detail Grain",
+    "feature_level": "Mandatory",
+    "allows_nulls": "True",
+    "data_type": "JSON",
+    "value_format": "[Key-Value Format](#attributes.key-valueformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceDetailGrain MUST be of type JSON Object (serialized as a String where necessary).",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain MUST conform to [KeyValueFormat](#attributes.key-valueformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain MUST NOT be null when one or more properties uniquely define the granularity of the invoice line item.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain MUST contain the set of all properties that uniquely define the granularity of the invoice line item.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain SHOULD use the applicable FOCUS-defined Invoice Detail Grain properties listed below to represent the granularity of the invoice line item.",
+        "severity": "WARN",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain MUST include all custom Invoice Detail Grain properties that are applicable to the granularity of the invoice line item when there is no equivalent FOCUS-defined property.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain property keys SHOULD conform to PascalCase format.",
+        "severity": "WARN",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailGrain property keys MUST begin with the string \"x_\" unless it is a FOCUS-defined property.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "FOCUS-defined InvoiceDetailGrain properties MUST adhere to the following requirements:",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "Property key MUST match the spelling and casing specified for the FOCUS-defined property.",
+        "severity": "FAIL",
+        "indent": 2
+      },
+      {
+        "text": "Property value MUST be of the type specified for that property.",
+        "severity": "FAIL",
+        "indent": 2
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoicedetailgrain.md"
+  },
+  "InvoiceDetailId": {
+    "column_id": "InvoiceDetailId",
+    "file_name": "invoicedetailid.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Detail ID",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceDetailId MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailId MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailId MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailId MUST uniquely identify a record within a given [InvoiceId](#datasets.invoicedetail.invoiceid).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoicedetailid.md"
+  },
+  "InvoiceDetailLastUpdated": {
+    "column_id": "InvoiceDetailLastUpdated",
+    "file_name": "invoicedetaillastupdated.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Detail Last Updated",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "Date/Time",
+    "value_format": "[Date/Time Format](#attributes.date/timeformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceDetailLastUpdated MUST be of type Date/Time.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailLastUpdated MUST conform to [DateTimeFormat](#attributes.date/timeformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailLastUpdated MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailLastUpdated MUST represent the most recent moment in time when any column value of the record identified by [InvoiceDetailId](#datasets.invoicedetail.invoicedetailid) was created or modified.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceDetailLastUpdated MUST be greater than or equal to [InvoiceDetailCreated](#datasets.invoicedetail.invoicedetailcreated).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoicedetaillastupdated.md"
+  },
+  "InvoiceId": {
+    "column_id": "InvoiceId",
+    "file_name": "invoiceid.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice ID",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceId MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceId MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceId MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceId MAY be generated prior to an invoice being issued.",
+        "severity": "INFO",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceId MUST uniquely identify the invoice as provided by the invoice issuer.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoiceid.md"
+  },
+  "InvoiceIssueDate": {
+    "column_id": "InvoiceIssueDate",
+    "file_name": "invoiceissuedate.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Issue Date",
+    "feature_level": "Mandatory",
+    "allows_nulls": "True",
+    "data_type": "Date/Time",
+    "value_format": "[Date/Time Format](#attributes.date/timeformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceIssueDate MUST be of type Date/Time.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueDate MUST conform to [DateTimeFormat](#attributes.date/timeformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueDate MAY be null.",
+        "severity": "INFO",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueDate MUST represent the official date of issuance for the corresponding [InvoiceId](#datasets.invoicedetail.invoiceid).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoiceissuedate.md"
+  },
+  "InvoiceIssueStatus": {
+    "column_id": "InvoiceIssueStatus",
+    "file_name": "invoiceissuestatus.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Issue Status",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "Allowed values",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [
+      "Open",
+      "Issued",
+      "Voided"
+    ],
+    "allowed_value_header": [
+      "Value",
+      "Description"
+    ],
+    "allowed_value_rows": [
+      [
+        "Open",
+        "The invoice is provisional and subject to change. It is not a valid financial obligation and the associated delivered data is preliminary."
+      ],
+      [
+        "Issued",
+        "The invoice has been formally issued by the provider. It represents a valid financial obligation with finalized associated data."
+      ],
+      [
+        "Voided",
+        "The invoice was previously issued but has been retracted or nullified. It is not a valid financial obligation."
+      ]
+    ],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceIssueStatus MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueStatus MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueStatus MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueStatus MUST be one of the allowed values.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueStatus MUST represent the current publication state of the invoice.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssueStatus MUST NOT be \"Open\" following a previous status of \"Issued\", except when explicitly requested or approved by the customer.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoiceissuestatus.md"
+  },
+  "InvoiceIssuerName": {
+    "column_id": "InvoiceIssuerName",
+    "file_name": "invoiceissuername.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Invoice Issuer Name",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "InvoiceIssuerName MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssuerName MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssuerName MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "InvoiceIssuerName MUST represent the entity that issues invoices.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/invoiceissuername.md"
+  },
+  "PaymentCurrency": {
+    "column_id": "PaymentCurrency",
+    "file_name": "paymentcurrency.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Payment Currency",
+    "feature_level": "Conditional",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "[Currency Format](#attributes.currencyformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "PaymentCurrency MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrency MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrency MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrency MUST represent the currency in which the invoice payment was made or expected to be made.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrency MUST be expressed in national currency (e.g., USD, EUR).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/paymentcurrency.md"
+  },
+  "PaymentCurrencyBilledCost": {
+    "column_id": "PaymentCurrencyBilledCost",
+    "file_name": "paymentcurrencybilledcost.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Payment Currency Billed Cost",
+    "feature_level": "Conditional",
+    "allows_nulls": "False",
+    "data_type": "Decimal",
+    "value_format": "[Numeric Format](#attributes.numericformat)",
+    "column_type": "Metric",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {
+      "example 1: consistent grain": {
+        "header": [
+          "Column",
+          "Value"
+        ],
+        "rows": [
+          [
+            "InvoiceDetailId",
+            "ID-001"
+          ],
+          [
+            "ChargeCategory",
+            "Usage"
+          ],
+          [
+            "BillingCurrency",
+            "USD"
+          ],
+          [
+            "BilledCost",
+            "100.00"
+          ],
+          [
+            "PaymentCurrency",
+            "EUR"
+          ],
+          [
+            "PaymentCurrencyBilledCost",
+            "92.00"
+          ],
+          [
+            "PaymentCurrencyInvoiceDetailId",
+            "ID-001"
+          ]
+        ]
+      },
+      "example 2: divergent grain": {
+        "header": [
+          "Column",
+          "A-101",
+          "A-102",
+          "Z-999"
+        ],
+        "rows": [
+          [
+            "InvoiceDetailId",
+            "A-101",
+            "A-102",
+            "Z-999"
+          ],
+          [
+            "InvoiceDetailDescription",
+            "Compute Instance A",
+            "Compute Instance B",
+            "Usage in Payment Currency"
+          ],
+          [
+            "BilledCost",
+            "45.00",
+            "55.00",
+            "0.00"
+          ],
+          [
+            "PaymentCurrencyBilledCost",
+            "0.00",
+            "0.00",
+            "92.00"
+          ],
+          [
+            "PaymentCurrencyInvoiceDetailId",
+            "Z-999",
+            "Z-999",
+            "Z-999"
+          ]
+        ]
+      }
+    },
+    "requirements": [
+      {
+        "text": "PaymentCurrencyBilledCost MUST be of type Decimal.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyBilledCost MUST conform to [NumericFormat](#attributes.numericformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyBilledCost MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyBilledCost MUST be denominated in the PaymentCurrency.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyBilledCost MUST be the PaymentCurrency-denominated equivalent of BilledCost.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyBilledCost MAY be non-zero while BilledCost is 0 when PaymentCurrencyBilledCost represents the aggregation of BilledCost amounts (denominated in PaymentCurrency) stated in other records.",
+        "severity": "INFO",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyBilledCost MAY be 0 while BilledCost is non-zero when BilledCost (denominated in PaymentCurrency) is represented in a separate aggregate record.",
+        "severity": "INFO",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/paymentcurrencybilledcost.md"
+  },
+  "PaymentCurrencyInvoiceDetailId": {
+    "column_id": "PaymentCurrencyInvoiceDetailId",
+    "file_name": "paymentcurrencyinvoicedetailid.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Payment Currency Invoice Detail ID",
+    "feature_level": "Conditional",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "PaymentCurrencyInvoiceDetailId MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyInvoiceDetailId MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyInvoiceDetailId MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyInvoiceDetailId MUST match the InvoiceDetailId of the record representing the PaymentCurrencyBilledCost aggregation for the current row.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentCurrencyInvoiceDetailId MUST match InvoiceDetailId of the current record when PaymentCurrencyBilledCost is non-zero.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/paymentcurrencyinvoicedetailid.md"
+  },
+  "PaymentDueDate": {
+    "column_id": "PaymentDueDate",
+    "file_name": "paymentduedate.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Payment Due Date",
+    "feature_level": "Mandatory",
+    "allows_nulls": "True",
+    "data_type": "Date/Time",
+    "value_format": "[Date/Time Format](#attributes.date/timeformat)",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "PaymentDueDate MUST be of type Date/Time.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentDueDate MUST conform to [DateTimeFormat](#attributes.date/timeformat) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentDueDate MAY be null.",
+        "severity": "INFO",
+        "indent": 0
+      },
+      {
+        "text": "PaymentDueDate MUST be the date specified by the invoice issuer as the deadline for payment for the corresponding [InvoiceId](#datasets.invoicedetail.invoiceid).",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/paymentduedate.md"
+  },
+  "PaymentTerms": {
+    "column_id": "PaymentTerms",
+    "file_name": "paymentterms.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Payment Terms",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "PaymentTerms MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentTerms MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentTerms MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PaymentTerms MUST represent the payment terms (e.g., \"Net 30\") as defined on the corresponding invoice.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/paymentterms.md"
+  },
+  "PurchaseOrderNumber": {
+    "column_id": "PurchaseOrderNumber",
+    "file_name": "purchaseordernumber.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Purchase Order Number",
+    "feature_level": "Conditional",
+    "allows_nulls": "True",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "PurchaseOrderNumber MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PurchaseOrderNumber MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "PurchaseOrderNumber MAY be null.",
+        "severity": "INFO",
+        "indent": 0
+      },
+      {
+        "text": "PurchaseOrderNumber MUST represent the identifier used by the customer to uniquely identify the purchase order responsible for the charge.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/purchaseordernumber.md"
+  },
+  "ReferenceInvoiceId": {
+    "column_id": "ReferenceInvoiceId",
+    "file_name": "referenceinvoiceid.md",
+    "tag": "v1.4",
+    "dataset": "invoice_detail",
+    "display_name": "Reference Invoice ID",
+    "feature_level": "Mandatory",
+    "allows_nulls": "False",
+    "data_type": "String",
+    "value_format": "\\<not specified>",
+    "column_type": "Dimension",
+    "introduced": "",
+    "introduced_note": "",
+    "allowed_values": [],
+    "allowed_value_header": [],
+    "allowed_value_rows": [],
+    "subsection_tables": {},
+    "requirements": [
+      {
+        "text": "ReferenceInvoiceId MUST be of type String.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ReferenceInvoiceId MUST conform to [StringHandling](#attributes.stringhandling) requirements.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ReferenceInvoiceId MUST NOT be null.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ReferenceInvoiceId MUST match the [InvoiceId](#datasets.invoicedetail.invoiceid) of the original invoice when it adjusts another invoice.",
+        "severity": "FAIL",
+        "indent": 0
+      },
+      {
+        "text": "ReferenceInvoiceId MUST match the InvoiceId of the current invoice when it does not adjust another invoice.",
+        "severity": "FAIL",
+        "indent": 0
+      }
+    ],
+    "raw_url": "https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/v1.4/specification/datasets/invoice_detail/columns/referenceinvoiceid.md"
+  }
+}

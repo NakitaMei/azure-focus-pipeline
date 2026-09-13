@@ -1,0 +1,11 @@
+resource_name,BillingCurrency,day,effective_cost_day,median_nonzero_resource_day,multiple_of_median,flag
+fx-appliance-01,USD,2026-07-26,18.0,0.6,30.0,ANOMALY
+vm-web-01,USD,2026-07-29,5.4,0.6,9.0,
+vm-web-01,USD,2026-07-27,5.4,0.6,9.0,
+vm-web-01,USD,2026-07-30,5.4,0.6,9.0,
+vm-web-01,USD,2026-07-31,3.8,0.6,6.3,
+aoai-p1-sandbox,USD,2026-07-22,3.0,0.6,5.0,
+vm-web-01,USD,2026-07-07,2.4,0.6,4.0,
+vm-web-01,USD,2026-07-08,2.4,0.6,4.0,
+vm-web-01,USD,2026-07-06,2.4,0.6,4.0,
+vm-web-01,USD,2026-07-04,2.4,0.6,4.0,

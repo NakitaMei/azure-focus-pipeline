@@ -1,0 +1,7 @@
+rung,saved_compared_to,BillingCurrency,list_cost,contracted_cost,effective_cost,saving,pct_of_list
+1. negotiation,vs paying the public list price,EUR,6.62,6.62,,0.0,0.0
+2. commitment,vs paying our negotiated rate on demand,EUR,,6.62,6.62,0.0,0.0
+3. HEADLINE (= rung 1 + rung 2),vs paying the public list price with no commitments,EUR,6.62,,6.62,0.0,0.0
+1. negotiation,vs paying the public list price,USD,148.52,144.8,,3.72,2.5
+2. commitment,vs paying our negotiated rate on demand,USD,,144.8,113.9,30.9,20.8
+3. HEADLINE (= rung 1 + rung 2),vs paying the public list price with no commitments,USD,148.52,,113.9,34.62,23.3

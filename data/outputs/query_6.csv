@@ -1,0 +1,4 @@
+commitment,description,BillingCurrency,term_start,term_end,term_days,days_observed,first_observed,last_observed,used_effective,unused_effective,used_plus_unused,contract_commitment_cost,verdict
+res-basv2-1yr-001,"Basv2 1-year reserved capacity, monthly billing",USD,2026-07-01,2026-08-01,31,31,2026-07-01,2026-07-31,61.8,12.6,74.4,74.4,"utilisation 83.1% of term — evaluable, term fully observed"
+res-basv2-3yr-upfront-001,"Basv2 3-year reserved capacity, all upfront",USD,2026-07-31,2029-07-31,1096,1,2026-07-31,2026-07-31,2.0,0.4,2.4,2628.0,"NOT EVALUABLE — window covers 1 of 1096 term days (would measure export length, not performance)"
+res-basv2-legacy-2023,,USD,,,,1,2024-03-14,2024-03-14,0.1,,0.1,,"TERM UNKNOWN — no contract record, not evaluable"

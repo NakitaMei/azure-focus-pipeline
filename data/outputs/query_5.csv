@@ -1,0 +1,5 @@
+ResourceName,ChargeDescription,BillingCurrency,consumed_quantity,consumed_unit,pricing_quantity,pricing_unit,consumed_in_pricing_units,effective_cost_consumption,verdict,waste_blocks,waste_cost_effective,block_utilisation_pct
+stp1sandbox,"Storage write operations, billed per 1K block",USD,2000.0,Operations,3.0,1K Operations,2.0,0.15,BLOCK ROUNDING WASTE,1.0,0.05,66.7
+stp1sandbox,Blob Storage,USD,186.0,Units,0.0186,Units,0.0186,0.0,"unit rescaling only — exact division, no rounding waste",0.0,0.0,100.0
+stp1sandbox,Files,USD,5.0,Units,0.0005,Units,0.0005,0.0,"unit rescaling only — exact division, no rounding waste",0.0,0.0,100.0
+aoai-p1-sandbox,"Generative AI inference, 1M-token pricing",USD,1500000.0,Tokens,1.5,1M Tokens,,3.0,unit conversion — block size not recorded; waste not assessable,,,

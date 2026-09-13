@@ -1,0 +1,66 @@
+{
+  "manifestVersion": "2024-04-01",
+  "byteCount": 24942,
+  "blobCount": 1,
+  "dataRowCount": 14,
+  "exportConfig": {
+    "exportName": "negative-fixtures",
+    "dataVersion": "1.2",
+    "type": "FocusCost",
+    "timeFrame": "MonthToDate",
+    "granularity": "Daily"
+  },
+  "deliveryConfig": {
+    "fileFormat": "Parquet",
+    "compressionMode": "Snappy",
+    "partitionData": false
+  },
+  "runInfo": {
+    "executionType": "Generated",
+    "runId": "s3-neg-0000-0000-00000000003"
+  },
+  "blobs": [
+    {
+      "blobName": "focus_negative_fixtures.snappy.parquet",
+      "byteCount": 24942,
+      "dataRowCount": 14
+    }
+  ],
+  "generator": {
+    "script": "seed_data.py",
+    "layer": "Negative fixtures - harness testing only",
+    "synthetic": true,
+    "generatedAt": "2026-09-01T17:08:59Z",
+    "deterministic": true,
+    "fileSha256": "8c0254a2ba58ac5ab30ea6c39e0ae05305f6e847d1d4a2f8f577c69e1ddda4aa",
+    "contentSha256": "40626f7bee98d7eb09cdb6aaf9afc6227a7e2feb74dfe6121388e568f28caa76",
+    "pyarrowVersion": "21.0.0",
+    "columnCount": 69,
+    "fixtureCounts": {
+      "negative": 14
+    },
+    "groundedAgainst": {
+      "export": "focus-export-p1-sandbox-focus-cost",
+      "runId": "534c40a5-5207-406a-a372-6f8308b56aaa",
+      "focusVersion": "1.0r2",
+      "rows": 118
+    },
+    "excludeFromUnifiedView": true,
+    "violations": [
+      "CHARGE_PERIOD_INVERTED",
+      "CURRENCY_NOT_ISO_4217",
+      "EMPTY_STRING_PLACEHOLDER",
+      "INVALID_CHARGECLASS_VALUE",
+      "INVALID_ENUM_VALUE",
+      "NEGATIVE_UNIT_PRICE",
+      "NULL_IN_MANDATORY_COLUMN",
+      "ORPHAN_CAPACITY_RESERVATION_STATUS",
+      "ORPHAN_COMMITMENT_STATUS",
+      "PURCHASE_WITH_USAGE_BASED_FREQUENCY",
+      "SATELLITE_WITHOUT_ANCHOR",
+      "SKU_PRICE_DETAILS_BAD_KEYS",
+      "TAX_WITH_PRICING_CATEGORY",
+      "UNIT_PRICE_COST_MISMATCH"
+    ]
+  }
+}

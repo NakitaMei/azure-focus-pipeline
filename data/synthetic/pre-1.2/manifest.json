@@ -1,0 +1,65 @@
+{
+  "manifestVersion": "2024-04-01",
+  "byteCount": 18646,
+  "blobCount": 1,
+  "dataRowCount": 10,
+  "exportConfig": {
+    "exportName": "synthetic-layer2-legacy",
+    "dataVersion": "1.0",
+    "type": "FocusCost",
+    "timeFrame": "MonthToDate",
+    "granularity": "Daily"
+  },
+  "deliveryConfig": {
+    "fileFormat": "Parquet",
+    "compressionMode": "Snappy",
+    "partitionData": false
+  },
+  "runInfo": {
+    "executionType": "Generated",
+    "runId": "s3-l2-0000-0000-000000000002"
+  },
+  "blobs": [
+    {
+      "blobName": "focus_synthetic_pre1.2.snappy.parquet",
+      "byteCount": 18646,
+      "dataRowCount": 10
+    }
+  ],
+  "generator": {
+    "script": "seed_data.py",
+    "layer": "Layer 2 - legacy era",
+    "synthetic": true,
+    "generatedAt": "2026-09-01T17:08:59Z",
+    "deterministic": true,
+    "fileSha256": "0a4c35793a2ad953fda59b6636f6ea1f78bfa6f4a1c9d514175e3daffd3fe70c",
+    "contentSha256": "15204ee817e8f08b42b053ae6bc61d3d1a9179bad271496b10e5a638aa9bcd91",
+    "pyarrowVersion": "21.0.0",
+    "columnCount": 51,
+    "fixtureCounts": {
+      "legacy_era": 10
+    },
+    "groundedAgainst": {
+      "export": "focus-export-p1-sandbox-focus-cost",
+      "runId": "534c40a5-5207-406a-a372-6f8308b56aaa",
+      "focusVersion": "1.0r2",
+      "rows": 118
+    },
+    "columnsAbsentVsV12": [
+      "BillingAccountType",
+      "CapacityReservationId",
+      "CapacityReservationStatus",
+      "CommitmentDiscountQuantity",
+      "CommitmentDiscountUnit",
+      "InvoiceId",
+      "PricingCurrency",
+      "PricingCurrencyContractedUnitPrice",
+      "PricingCurrencyEffectiveCost",
+      "PricingCurrencyListUnitPrice",
+      "ServiceSubcategory",
+      "SkuMeter",
+      "SkuPriceDetails",
+      "SubAccountType"
+    ]
+  }
+}

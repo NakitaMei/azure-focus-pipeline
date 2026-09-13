@@ -1,0 +1,4 @@
+excluded_because,BillingCurrency,row_count,metric,amount
+synthetic billing events (reconciling panel 1b),USD,5,BilledCost,2684.84
+synthetic consumption (not the budget's subject),EUR,2,EffectiveCost,6.62
+synthetic consumption (not the budget's subject),USD,68,EffectiveCost,110.87

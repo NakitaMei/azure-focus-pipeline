@@ -1,0 +1,6 @@
+panel,BillingCurrency,row_count,billed_cost_cash
+GRAND TOTAL (= sum of the two above),EUR,2,6.62
+usage side,EUR,2,6.62
+GRAND TOTAL (= sum of the two above),USD,192,2702.09
+reconciling side,USD,5,2684.84
+usage side,USD,187,17.25

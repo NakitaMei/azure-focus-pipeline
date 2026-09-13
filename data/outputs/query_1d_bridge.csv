@@ -1,0 +1,2 @@
+bill_scope,consumption_scope,ChargeCategory,ChargeClass,ResourceName,charge_period_start,billed_cost_cash
+on July bill,not July consumption,Usage,Correction,stp1sandbox,2026-06-14,-1.85

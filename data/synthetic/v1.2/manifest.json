@@ -1,0 +1,52 @@
+{
+  "manifestVersion": "2024-04-01",
+  "byteCount": 31029,
+  "blobCount": 1,
+  "dataRowCount": 76,
+  "exportConfig": {
+    "exportName": "synthetic-layer3-v1.2",
+    "dataVersion": "1.2",
+    "type": "FocusCost",
+    "timeFrame": "MonthToDate",
+    "granularity": "Daily"
+  },
+  "deliveryConfig": {
+    "fileFormat": "Parquet",
+    "compressionMode": "Snappy",
+    "partitionData": false
+  },
+  "runInfo": {
+    "executionType": "Generated",
+    "runId": "s3-v12-0000-0000-000000000001"
+  },
+  "blobs": [
+    {
+      "blobName": "focus_synthetic_v1.2.snappy.parquet",
+      "byteCount": 31029,
+      "dataRowCount": 76
+    }
+  ],
+  "generator": {
+    "script": "seed_data.py",
+    "layer": "Layer 3 - synthetic enrichment",
+    "synthetic": true,
+    "generatedAt": "2026-09-01T17:08:59Z",
+    "deterministic": true,
+    "fileSha256": "7132f095472505920fceac48a503650ec9beddcffeebfc0478f7a50a35f08891",
+    "contentSha256": "a3e2d030365ef5a6767ebeece007a864314dccb7e6c7cb1ffe71cab151bb496b",
+    "pyarrowVersion": "21.0.0",
+    "columnCount": 67,
+    "fixtureCounts": {
+      "reservation_lifecycle": 53,
+      "charge_family": 5,
+      "pricing_family": 7,
+      "account_resource_sku": 11
+    },
+    "groundedAgainst": {
+      "export": "focus-export-p1-sandbox-focus-cost",
+      "runId": "534c40a5-5207-406a-a372-6f8308b56aaa",
+      "focusVersion": "1.0r2",
+      "rows": 118
+    }
+  }
+}

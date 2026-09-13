@@ -1,0 +1,2 @@
+resource_name,service_category,service_name,charge_description,team,BillingCurrency,first_seen,last_seen,days_active,effective_cost_total,billed_cost_cash_total
+fx-appliance-01,Security,Marketplace Security Appliance,"Third-party security appliance licence, monthly",platform,USD,2026-07-26,2026-07-26,1,18.0,0.0

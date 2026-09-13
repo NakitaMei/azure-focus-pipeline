@@ -1,0 +1,11 @@
+# unsanitised exports — personal data; never committed
+data/raw/
+# 19 MB copy of a public document; re-fetched by spec_source.py
+spec_cache/
+# reference-validator workaround folder
+focus_validator/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.xlsx

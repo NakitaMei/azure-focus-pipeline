@@ -1,0 +1,38 @@
+{
+  "manifestVersion": "2024-04-01",
+  "byteCount": 41060,
+  "blobCount": 1,
+  "dataRowCount": 118,
+  "exportConfig": {
+    "exportName": "focus-export-p1-sandbox-focus-cost",
+    "resourceId": "/subscriptions/2b87f7b4-e1d9-35e4-fedc-338162c66672/providers/Microsoft.CostManagement/exports/focus-export-p1-sandbox-focus-cost",
+    "dataVersion": "1.0r2",
+    "apiVersion": "2025-03-01",
+    "type": "FocusCost",
+    "timeFrame": "MonthToDate",
+    "granularity": "Daily"
+  },
+  "deliveryConfig": {
+    "fileFormat": "Parquet",
+    "compressionMode": "Snappy",
+    "partitionData": false
+  },
+  "runInfo": {
+    "executionType": "Sanitised",
+    "runId": "534c40a5-5207-406a-a372-6f8308b56aaa"
+  },
+  "blobs": [
+    {
+      "blobName": "focus_real_sanitised.snappy.parquet",
+      "byteCount": 41060,
+      "dataRowCount": 118
+    }
+  ],
+  "sanitisation": {
+    "source": "data/raw/31 July 2026/",
+    "method": "rule-based; no lookup table exists (decision D1)",
+    "salt": "project-1-azure-focus",
+    "verified": "0 residual identifiers, checked independently of the sanitising rules",
+    "publishable": true
+  }
+}
