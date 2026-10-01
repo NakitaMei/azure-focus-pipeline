@@ -2,7 +2,7 @@
 
 **Project:** Azure Cost Management → FOCUS Pipeline (Portfolio Project 1) · repo `azure-focus-pipeline` under `github.com/NakitaMei`
 **Opened:** Wednesday 9 September 2026 · **Driver:** P1_PREPUBLICATION_REVIEW_AND_STAGE8_PLAN.md, Part C order
-**Calendar binds (review):** private repo committed Sat 12 · checker clean + cold read Sun 13 · buffer Mon 14 · **public Tue 15** · post Wed 16 · Story Thu 17 · Henrique Fri 18 · fly Sun 20 16:35
+**Calendar binds (review):** private repo committed Sat 12 · checker clean + cold read Sun 13 · buffer Mon 14 · **public Tue 15** · post Wed 16 · Story Thu 17 · Henrique Fri 18
 **Re-plan 13 Sep (work paused 9–13 Sep for family; one step ticked):** *(end of day: Steps 1–5, 7, 8, 9 and the checker half of 10 done; 6 out by default; open: 10b private repo + cold read (yours), 11 teardown, 12 public)* Sun 13 = Steps 2–6 + README draft · Mon 14 = README review, Step 8, Step 9, Step 10 (checker, private repo, cold read) · Tue 15 = Step 11 then Step 12. The Monday buffer is now a working day. Fallback if Tuesday runs short: publish Tuesday, tear down Wednesday — the final-cost screenshot simply captures a later total; the publication date is what the Story and the Henrique message depend on.
 
 This is the one working file for Stage 8. It is updated in place; nothing is written twice. Each step has a "run this" block, a "done when", and a ledger line that is filled after your screenshot confirms it.
@@ -185,7 +185,7 @@ Delivered as `README.md`. A4 order: what · who/why · five results (real/synthe
 ### Step 8 — F8/F9: case study, findings & recommendations, cadence, two business cases, governance note · DONE 13 Sep
 **Ledger:** `F8/F9 ✅ 13 Sep — four documents written into the publish tree and linked from the README's "Read next": docs/CASE_STUDY.md (1,229 words, the review's order), docs/FINDINGS_AND_RECOMMENDATIONS.md (15 findings × 6 columns + "what to do first"), docs/GOVERNANCE_NOTE.md (416 words, four controls, ends with the 7 Sep rotation as a fact), docs/CADENCE_AND_BUSINESS_CASES.md (nine-rhythm operating cadence; business case A: VM scheduling $0.00 now / ≈70 % of compute later, with the $8.91 B2ats v2 list price as the scale illustration; business case B: 85.5 % vs 63.4 %, uncovered-eligible $10.80 USD + €6.62 EUR). Every number in them was verified in this session. Checker re-run on the tree: clean, 58 text files. One old repo name found in the Stage 4 notes' target-tree diagram and fixed. Tree re-zipped: 128 files.`
 **Later 13 Sep — positioning (your call):** README's second line changed from "a CFO moving into FinOps" to **"Built from a CFO's seat"** — the seat as the asset, no transition advertised. Case study gained two sections: "Read it as an accountant would" (16-row finance-twin table, from the review's B1) and "Where it sits in the Framework" (12 capabilities/concepts → where demonstrated → real/synthetic), so the FOCP / FOCUS Analyst / AI Value vocabulary is applied on the page rather than listed. Case study now 2,034 words. Checker clean; re-zipped.
-**Decision on 11/12 timing (13 Sep):** nothing technical gates on Tuesday. Recommended: 10b + 11 tonight, 12 after a night's sleep and the cold read. AWS/P2: not required for P1; decide after Amsterdam.
+**Decision on 11/12 timing (13 Sep):** nothing technical gates on Tuesday. Recommended: 10b + 11 tonight, 12 after a night's sleep and the cold read. AWS/P2: not required for P1; decide in late September.
 
 ### Step 9 — C3 sanitisation sweep + C4 screenshot filing · DONE 13 Sep (built here, from the full folder zip)
 **Ledger:** `F7 (sweep) ✅ 13 Sep — publish tree azure-focus-pipeline/ built in the session from <working-folder>.zip + the stage zips + stage8-runs + the Stage 8 deliverables; delivered as azure-focus-pipeline.zip (5.8 MB, 124 files: 17 scripts, 4 sql, 16 docs, 30 data, 54 screenshots).` Method: copy-into-clean-tree, working folder untouched.
@@ -356,5 +356,4 @@ The sandbox is torn down to a single storage account with its exports,
 budget and alerts intact. The final bill for the project was $14.95.
 
 What comes next is the launch, not the project: the LinkedIn post, the
-FinOps Story on version drift, and the message to Henrique, all before
-flying on the 20th.
+FinOps Story on version drift, and the message to Henrique.

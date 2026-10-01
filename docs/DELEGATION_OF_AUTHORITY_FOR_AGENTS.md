@@ -16,7 +16,7 @@ The barriers to adopting agents are also not technical. What is missing is the p
 
 ## The four questions
 
-Finance asks four questions of any employee who can commit the organisation's money. They are the same four for an agent.
+Finance asks four questions of any employee who can commit the organisation's money. Every year an auditor asks me the same four about the people in my finance function. They are the same four for an agent.
 
 1. **What is your mandate?** A written statement of what the agent is there to do, signed by a named person who answers for it.
 2. **What may you do alone, and what needs a second signature?** Approval limits: what the agent may do by itself, what needs a human approver, and what it may never do.

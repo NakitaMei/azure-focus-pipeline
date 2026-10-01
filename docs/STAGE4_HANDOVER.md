@@ -181,7 +181,7 @@ mandatory reconciliation. `focus_unified` is safe because D3 normalised it;
       compares every publishable file against the real identifiers in
       `data/raw/`, and reports the file and count without ever printing a value.
 - [ ] **Two community issues** — working notes §31. Worth raising **before**
-      Amsterdam in late September, not after.
+      late September, not after.
 - [ ] Two SHOULD-level rules the reference validator catches and this harness does
       not: `ServiceName SHOULD have one and only one ServiceSubcategory`, and
       `PricingUnit SHOULD conform to UnitFormat`. Both implementable.

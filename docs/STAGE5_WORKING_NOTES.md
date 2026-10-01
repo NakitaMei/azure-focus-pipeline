@@ -1460,7 +1460,7 @@ verdicts and refusals displayed as content.
 - [ ] **Screenshot each of the four pages into /docs** (Master v3
       Stage 5 deliverable: dashboard URL + screenshots)
 - [ ] Budget figure: still the flagged $20 assumption — confirm before
-      the Amsterdam deck quotes it
+      anything quotes it
 - [ ] Then Stage 5 = COMPLETE; GitHub publication session remains the
       carried open item (run publication_check.py last, per Stage 4
       handover)
@@ -1500,4 +1500,4 @@ the captures + p1s5-dashboard-url.md into docs/dashboard/.
 Carried out of Stage 5: **GitHub publication session** (run
 publication_check.py last — Stage 4 handover §Open items) and the
 **$20 budget figure confirmation** (still a flagged assumption in
-queries 2a/2b and on the dashboard; confirm before Amsterdam quotes it).
+queries 2a/2b and on the dashboard; confirm before anything quotes it).

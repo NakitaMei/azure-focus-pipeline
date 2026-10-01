@@ -773,4 +773,4 @@ Carried to Stage 8: sanitisation running list (§6) · teardown decision
 (oai-p1-sandbox, vmss none created) · case-study assembly from each chunk's
 "paragraph shape" · AWS S3 first-delivery peek (P2 side, passive).
 Next gate: Fable full review per REVIEW_BRIEF.md, then Stage 8 publication —
-target live before 20 Sept (Amsterdam).
+target live before 20 Sept.

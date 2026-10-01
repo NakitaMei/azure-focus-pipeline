@@ -87,8 +87,8 @@ EffectiveCost / 0.00 BilledCost — a cash-based detector sees nothing.
       notes §24/§31; `publication_check.py` runs last, immediately
       before the first push.
 - [ ] **Budget figure** — 20.00 USD/month is still a flagged assumption
-      (queries 2a/2b + dashboard note). Confirm before Amsterdam.
-- [ ] Two community issues worth raising before Amsterdam (Stage 4
+      (queries 2a/2b + dashboard note). Confirm before late September.
+- [ ] Two community issues worth raising before late September (Stage 4
       working notes §31).
 - [ ] Two SHOULD-level rules the reference validator has and the
       harness doesn't (ServiceSubcategory uniqueness; PricingUnit
