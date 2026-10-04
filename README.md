@@ -93,12 +93,17 @@ than a description. Azure declares 1.0r2 and ships two columns from 1.2.
 rows, each breaking exactly one rule and declaring which. A detection counts
 only when the check that fires is the check implementing that rule.
 
-**Run alongside the official validator.** The FinOps Foundation's own
-validator cannot evaluate conditional rules and treats SHOULD and MUST alike.
-It does catch two recommendation-level rules this one does not: that a
-service name maps to one sub-category, and that a pricing unit follows the
-unit format. Both are implementable and neither is implemented yet. Its run
-log is in [`docs/reference-validator-run.log`](docs/reference-validator-run.log).
+**Run alongside the official validator.** The FinOps Foundation's validator
+runs on the specification's Requirements Model, the JSON form of the same
+rules this project parses from prose, and it does evaluate conditional rules.
+Where it differs is that its results carry no severity (a failed SHOULD and a
+failed MUST both report as failed) and it has no era awareness, so it applies
+rules for columns that did not yet exist to rows emitted before they did. It
+catches type, format and cardinality rules this one does not yet. The two
+readings have been checked against each other, rule by rule, in
+[`docs/REQUIREMENTS_MODEL_COMPARISON.md`](docs/REQUIREMENTS_MODEL_COMPARISON.md);
+the August run log is in
+[`docs/reference-validator-run.log`](docs/reference-validator-run.log).
 
 ---
 

@@ -29,7 +29,7 @@ None of this means a human in every step. A trusted employee handles routine wor
 
 ## Value against the mandate
 
-Most discussion of agent cost starts with tokens, the units of text a model is billed on. Token cost matters, and this repository reconciles real token spend to the bill. But nobody judges an employee by salary alone. We judge them by what they delivered against what they were asked to do. The same holds for an agent: without a mandate there is nothing to measure value against, and cost is the only number left.
+Most discussion of agent cost starts with tokens, the units a model uses to measure its workload, whatever the modality: text, image, audio or video. Token cost matters, and this repository reconciles real token spend to the bill. But nobody judges an employee by salary alone. We judge them by what they delivered against what they were asked to do. The same holds for an agent: without a mandate there is nothing to measure value against, and cost is the only number left.
 
 ## Scope, and what comes next
 

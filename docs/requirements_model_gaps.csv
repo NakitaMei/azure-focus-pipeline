@@ -1,0 +1,286 @@
+model_rule_id,kind,reference,function,keyword,model_check_function,has_condition,has_applicability,covered_by,sentence
+ColumnHandling-A-001-M,attributes,ColumnHandling,Validation,MUST,(none: not executable in model),False,False,,Column IDs MUST use Pascal case.
+ColumnHandling-A-002-M,attributes,ColumnHandling,Validation,MUST NOT,(none: not executable in model),False,False,,Column IDs MUST NOT use abbreviations.
+ColumnHandling-A-003-M,attributes,ColumnHandling,Validation,MUST,(none: not executable in model),False,False,,Column IDs MUST be alphanumeric with no special characters.
+ColumnHandling-A-006-M,attributes,ColumnHandling,Validation,MUST,(none: not executable in model),False,False,,Columns that have an ID and a Name MUST have the Id or Name suffix in the Column ID.
+ColumnHandling-A-008-M,attributes,ColumnHandling,Validation,MUST,(none: not executable in model),False,False,,Columns with the Category suffix MUST be normalized.
+ColumnHandling-A-010-M,attributes,ColumnHandling,Validation,MUST,(none: not executable in model),False,False,,"Custom columns MUST be prefixed with a consistent x_ prefix to identify them as external, custom columns and distinguish them from FOCUS columns to avoid conflicts in future releases."
+CurrencyFormat-A-001-C,attributes,CurrencyFormat,Validation,MUST,(none: not executable in model),False,False,,"Currency-related columns MUST be represented as a three-letter alphabetic code as dictated in the governing document ISO 4217:2015 when the value is presented in national currency (e.g., USD, EUR)."
+CurrencyFormat-A-002-C,attributes,CurrencyFormat,Validation,MUST,(none: not executable in model),False,False,,"Currency-related columns MUST conform to StringHandling requirements when the value is presented in virtual currency (e.g., credits, tokens)."
+DateTimeFormat-A-001-M,attributes,DateTimeFormat,Validation,MUST,(none: not executable in model),False,False,,Date/time values MUST be in UTC (Coordinated Universal Time) to avoid ambiguity and ensure consistency across different time zones.
+DateTimeFormat-A-002-M,attributes,DateTimeFormat,Format,MUST,(none: not executable in model),False,False,,"Date/time values format MUST be aligned with ISO 8601 standard, which provides a globally recognized format for representing dates and times (see ISO 8601-1:2019 governing document for details)."
+DateTimeFormat-A-004-M,attributes,DateTimeFormat,Validation,MUST,(none: not executable in model),False,False,,"MUST Include the date and time components, separated with the letter ‘T’."
+DateTimeFormat-A-005-M,attributes,DateTimeFormat,Validation,MUST,(none: not executable in model),False,False,,"MUST Use two-digit hours (HH), minutes (mm), and seconds (ss)."
+DateTimeFormat-A-006-M,attributes,DateTimeFormat,Validation,MUST,(none: not executable in model),False,False,,MUST End with the ‘Z’ indicator to denote UTC (Coordinated Universal Time).
+DiscountHandling-A-003-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"Multiple discounts MAY apply to a row, but they MUST apply to the entire charge covered by that row."
+DiscountHandling-A-004-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"If a discount only applies to a portion of a charge, then the discounted portion of the charge MUST be split into a separate row."
+DiscountHandling-A-006-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,Rows with a commitment discount applied to them MUST include a CommitmentDiscountId.
+DiscountHandling-A-009-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,The BilledCost MUST be 0 for any row where the commitment covers the entire cost for the charge period.
+DiscountHandling-A-010-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,The EffectiveCost MUST include the portion of the amortized purchase cost that applies to this row.
+DiscountHandling-A-011-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"The sum of the EffectiveCost for all rows where CommitmentDiscountStatus is ""Used"" or ""Unused"" for each CommitmentDiscountId over the entire duration of the commitment MUST be the same as the total BilledCost of the commitment discount."
+DiscountHandling-A-012-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,The CommitmentDiscountId and ResourceId MUST be set to the ID assigned to the commitment discount.
+DiscountHandling-A-013-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"ChargeCategory MUST be set to ""Purchase"" on rows that represent a purchase of a commitment discount."
+DiscountHandling-A-014-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"CommitmentDiscountStatus MUST be ""Used"" for ChargeCategory ""Usage"" rows that received a reduced price from a commitment."
+DiscountHandling-A-015-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,CommitmentDiscountId MUST be set to the ID assigned to the discount.
+DiscountHandling-A-016-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,ResourceId MUST be set to the ID of the resource that received the discount.
+DiscountHandling-A-017-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"If a commitment is not fully utilized, the provider MUST include a row that represents the unused portion of the commitment for that charge period."
+DiscountHandling-A-018-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"These rows MUST be represented with CommitmentDiscountStatus set to ""Unused"" and ChargeCategory set to ""Usage""."
+DiscountHandling-A-019-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,Such rows MUST have their CommitmentDiscountId and ResourceId set to the ID assigned to the commitment discount.
+DiscountHandling-A-020-C,attributes,DiscountHandling,Validation,MUST,(none: not executable in model),False,True,,"Credits that are applied after the fact MUST use a ChargeCategory of ""Credit""."
+KeyValueFormat-A-001-M,attributes,KeyValueFormat,Format,MUST,(none: not executable in model),False,False,,"Key-Value Format columns MUST contain a serialized JSON string, consistent with the ECMA 404 definition of an object."
+KeyValueFormat-A-002-M,attributes,KeyValueFormat,Validation,MUST,(none: not executable in model),False,False,,Keys in a key-value pair MUST be unique within an object.
+KeyValueFormat-A-003-M,attributes,KeyValueFormat,Validation,MUST,(none: not executable in model),False,False,,"Values in a key-value pair MUST be one of the following types: number, string, true, false, or null."
+KeyValueFormat-A-004-M,attributes,KeyValueFormat,Validation,MUST NOT,(none: not executable in model),False,False,,Values in a key-value pair MUST NOT be an object or an array.
+NullHandling-A-001-C,attributes,NullHandling,Validation,MUST,(none: not executable in model),False,False,,Columns MUST use NULL when there isn’t a value that can be specified for a nullable column.
+NumericFormat-A-002-M,attributes,NumericFormat,Format,MUST,(none: not executable in model),False,False,,Columns with a Numeric value format MUST contain a single numeric value.
+NumericFormat-A-003-M,attributes,NumericFormat,Format,MUST,(none: not executable in model),False,False,,"Numeric values MUST be expressed as an integer value, a decimal value, or a value expressed in scientific notation."
+NumericFormat-A-004-M,attributes,NumericFormat,Format,MUST NOT,(none: not executable in model),False,False,,Fractional notation MUST NOT be used.
+NumericFormat-A-005-M,attributes,NumericFormat,Format,MUST,(none: not executable in model),False,False,,"Numeric values expressed using scientific notation MUST be expressed using E notation ""mEn"" with a real number m and an integer n indicating a value of ""m x 10^n""."
+NumericFormat-A-006-M,attributes,NumericFormat,Format,MUST,(none: not executable in model),False,False,,The sign of the exponent MUST only be expressed as part of the exponent value if n is negative.
+NumericFormat-A-007-M,attributes,NumericFormat,Format,MUST NOT,(none: not executable in model),False,False,,"Numeric values MUST NOT be expressed with mathematical symbols, functions, or operators."
+NumericFormat-A-008-M,attributes,NumericFormat,Format,MUST NOT,(none: not executable in model),False,False,,"Numeric values MUST NOT contain qualifiers or additional characters (e.g., currency symbols, units of measure, etc.)."
+NumericFormat-A-009-M,attributes,NumericFormat,Format,MUST NOT,(none: not executable in model),False,False,,"Numeric values MUST NOT contain commas or punctuation marks except for a single decimal point (""."") if required to express a decimal value."
+NumericFormat-A-010-M,attributes,NumericFormat,Format,MUST NOT,(none: not executable in model),False,False,,Numeric values MUST NOT include a character to represent a sign for a positive value.
+NumericFormat-A-011-M,attributes,NumericFormat,Format,MUST,(none: not executable in model),False,False,,A negative sign (-) MUST indicate a negative value.
+NumericFormat-A-012-M,attributes,NumericFormat,Format,MUST,(none: not executable in model),False,False,,"Columns with a Numeric value format MUST present one of the following values as the ""Data type"" in the column definition."
+StringHandling-A-001-M,attributes,StringHandling,Format,MUST,(none: not executable in model),False,False,,String values MUST be valid Unicode strings.
+StringHandling-A-003-M,attributes,StringHandling,Format,MUST,(none: not executable in model),False,False,,"String values MUST maintain the original casing, spacing, and other relevant consistency factors as specified by providers and end-users."
+StringHandling-A-004-M,attributes,StringHandling,Format,MUST,(none: not executable in model),False,False,,"Charges to mutable entities (e.g., resource names) MUST be accurately reflected in corresponding charges incurred after the change."
+StringHandling-A-005-M,attributes,StringHandling,Format,MUST NOT,(none: not executable in model),False,False,,"Charges to mutable entities MUST NOT alter charges incurred before the change, preserving data integrity and auditability for all charge records."
+StringHandling-A-006-M,attributes,StringHandling,Format,MUST,(none: not executable in model),False,False,,"Immutable string values that refer to the same entity (e.g., resource identifiers, region identifiers, etc.) MUST remain consistent and unchanged across all billing periods."
+UnitFormat-A-003-M,attributes,UnitFormat,Format,MUST,(none: not executable in model),False,False,,Unit values and components of columns using the Unit Format MUST use a capitalization scheme that is consistent with the capitalization scheme used in this attribute if that term is listed in this section.
+AvailabilityZone-C-001-M,columns,AvailabilityZone,Type,MUST,TypeString,False,False,,AvailabilityZone MUST be of type String.
+AvailabilityZone-C-002-M,columns,AvailabilityZone,Format,MUST,FormatString,False,False,,AvailabilityZone MUST conform to StringHandling requirements.
+AvailabilityZone-C-003-C,columns,AvailabilityZone,Nullability,MUST,(none: not executable in model),False,False,,AvailabilityZone MUST be null when a charge is not specific to an availability zone.
+BilledCost-C-001-M,columns,BilledCost,Type,MUST,TypeDecimal,False,False,,BilledCost MUST be of type Decimal.
+BilledCost-C-002-M,columns,BilledCost,Format,MUST,FormatNumeric,False,False,,BilledCost MUST conform to NumericFormat requirements.
+BilledCost-C-004-M,columns,BilledCost,Validation,MUST,CheckDecimalValue,False,False,,BilledCost MUST be a valid decimal value.
+BilledCost-C-005-C,columns,BilledCost,Validation,MUST,CheckValue,True,False,,"BilledCost MUST be 0 for charges where payments are received by a third party (e.g., marketplace transactions)."
+BilledCost-C-006-M,columns,BilledCost,Validation,MUST,(none: not executable in model),False,False,,BilledCost MUST be denominated in the BillingCurrency.
+BillingAccountId-C-002-M,columns,BillingAccountId,Type,MUST,TypeString,False,False,,BillingAccountId MUST be of type String.
+BillingAccountId-C-003-M,columns,BillingAccountId,Format,MUST,FormatString,False,False,,BillingAccountId MUST conform to StringHandling requirements.
+BillingAccountId-C-004-M,columns,BillingAccountId,Validation,MUST,(none: not executable in model),False,False,,BillingAccountId MUST be a unique identifier within a provider.
+BillingAccountName-C-001-M,columns,BillingAccountName,Type,MUST,TypeString,False,False,,BillingAccountName MUST be of type String.
+BillingAccountName-C-002-M,columns,BillingAccountName,Format,MUST,FormatString,False,False,,BillingAccountName MUST conform to StringHandling requirements.
+BillingAccountName-C-003-C,columns,BillingAccountName,Nullability,MUST NOT,CheckNotValue,False,True,,BillingAccountName MUST NOT be null when the provider supports assigning a display name for the billing account.
+BillingAccountType-C-001-M,columns,BillingAccountType,Type,MUST,TypeString,False,False,,BillingAccountType MUST be of type String.
+BillingAccountType-C-002-M,columns,BillingAccountType,Format,MUST,FormatString,False,False,,BillingAccountType MUST conform to StringHandling requirements.
+BillingAccountType-C-006-M,columns,BillingAccountType,Validation,MUST,(none: not executable in model),False,False,,"BillingAccountType MUST be a consistent, readable display value."
+BillingCurrency-C-001-M,columns,BillingCurrency,Type,MUST,TypeString,False,False,,BillingCurrency MUST be of type String.
+BillingCurrency-C-002-M,columns,BillingCurrency,Format,MUST,FormatString,False,False,,BillingCurrency MUST conform to StringHandling requirements.
+BillingCurrency-C-003-M,columns,BillingCurrency,Format,MUST,FormatCurrency,False,False,,BillingCurrency MUST conform to CurrencyFormat requirements.
+BillingCurrency-C-005-M,columns,BillingCurrency,Validation,MUST,(none: not executable in model),False,False,,BillingCurrency MUST match the currency used in the invoice generated by the invoice issuer.
+BillingPeriodEnd-C-001-M,columns,BillingPeriodEnd,Type,MUST,TypeDateTime,False,False,,BillingPeriodEnd MUST be of type Date/Time.
+BillingPeriodEnd-C-002-M,columns,BillingPeriodEnd,Format,MUST,FormatDateTime,False,False,,BillingPeriodEnd MUST conform to DateTimeFormat requirements.
+BillingPeriodEnd-C-004-M,columns,BillingPeriodEnd,Validation,MUST,(none: not executable in model),False,False,,BillingPeriodEnd MUST be the exclusive end bound of the billing period.
+BillingPeriodStart-C-001-M,columns,BillingPeriodStart,Type,MUST,TypeDateTime,False,False,,BillingPeriodStart MUST be of type Date/Time.
+BillingPeriodStart-C-002-M,columns,BillingPeriodStart,Format,MUST,FormatDateTime,False,False,,BillingPeriodStart MUST conform to DateTimeFormat requirements.
+BillingPeriodStart-C-004-M,columns,BillingPeriodStart,Validation,MUST,(none: not executable in model),False,False,,BillingPeriodStart MUST be the inclusive start bound of the billing period.
+CapacityReservationId-C-001-M,columns,CapacityReservationId,Type,MUST,TypeString,False,False,,CapacityReservationId MUST be of type String.
+CapacityReservationId-C-002-M,columns,CapacityReservationId,Format,MUST,FormatString,False,False,,CapacityReservationId MUST conform to StringHandling requirements.
+CapacityReservationId-C-004-C,columns,CapacityReservationId,Nullability,MUST,(none: not executable in model),False,False,,CapacityReservationId MUST be null when a charge is not related to a capacity reservation.
+CapacityReservationId-C-005-C,columns,CapacityReservationId,Nullability,MUST NOT,CheckNotValue,True,False,,CapacityReservationId MUST NOT be null when a charge represents the unused portion of a capacity reservation.
+CapacityReservationId-C-008-M,columns,CapacityReservationId,Validation,MUST,(none: not executable in model),False,False,,CapacityReservationId MUST be a unique identifier within the provider.
+CapacityReservationStatus-C-001-M,columns,CapacityReservationStatus,Type,MUST,TypeString,False,False,,CapacityReservationStatus MUST be of type String.
+CapacityReservationStatus-C-007-C,columns,CapacityReservationStatus,Validation,MUST,(none: not executable in model),False,False,,"CapacityReservationStatus MUST be ""Unused"" when the charge represents the unused portion of a capacity reservation."
+CapacityReservationStatus-C-008-C,columns,CapacityReservationStatus,Validation,MUST,(none: not executable in model),False,False,,"CapacityReservationStatus MUST be ""Used"" when the charge represents the used portion of a capacity reservation."
+ChargeCategory-C-001-M,columns,ChargeCategory,Type,MUST,TypeString,False,False,,ChargeCategory MUST be of type String.
+ChargeClass-C-001-M,columns,ChargeClass,Type,MUST,TypeString,False,False,,ChargeClass MUST be of type String.
+ChargeClass-C-003-C,columns,ChargeClass,Nullability,MUST,(none: not executable in model),False,False,,ChargeClass MUST be null when the row does not represent a correction or when it represents a correction within the current billing period.
+ChargeClass-C-004-C,columns,ChargeClass,Nullability,MUST NOT,(none: not executable in model),False,False,,ChargeClass MUST NOT be null when the row represents a correction to a previously invoiced billing period.
+ChargeDescription-C-001-M,columns,ChargeDescription,Type,MUST,TypeString,False,False,,ChargeDescription MUST be of type String.
+ChargeDescription-C-002-M,columns,ChargeDescription,Format,MUST,FormatString,False,False,,ChargeDescription MUST conform to StringHandling requirements.
+ChargeFrequency-C-001-M,columns,ChargeFrequency,Type,MUST,TypeString,False,False,,ChargeFrequency MUST be of type String.
+ChargePeriodEnd-C-001-M,columns,ChargePeriodEnd,Type,MUST,TypeDateTime,False,False,,ChargePeriodEnd MUST be of type Date/Time.
+ChargePeriodEnd-C-002-M,columns,ChargePeriodEnd,Format,MUST,FormatDateTime,False,False,,ChargePeriodEnd MUST conform to DateTimeFormat requirements.
+ChargePeriodStart-C-001-M,columns,ChargePeriodStart,Type,MUST,TypeDateTime,False,False,,ChargePeriodStart MUST be of type Date/Time.
+ChargePeriodStart-C-002-M,columns,ChargePeriodStart,Format,MUST,FormatDateTime,False,False,,ChargePeriodStart MUST conform to DateTimeFormat requirements.
+ChargePeriodStart-C-004-M,columns,ChargePeriodStart,Validation,MUST,(none: not executable in model),False,False,,ChargePeriodStart MUST be the inclusive start bound of the effective period of the charge.
+CommitmentDiscountCategory-C-001-M,columns,CommitmentDiscountCategory,Type,MUST,TypeString,False,False,,CommitmentDiscountCategory MUST be of type String.
+CommitmentDiscountId-C-001-M,columns,CommitmentDiscountId,Type,MUST,TypeString,False,False,,CommitmentDiscountId MUST be of type String.
+CommitmentDiscountId-C-002-M,columns,CommitmentDiscountId,Format,MUST,FormatString,False,False,,CommitmentDiscountId MUST conform to StringHandling requirements.
+CommitmentDiscountId-C-004-C,columns,CommitmentDiscountId,Nullability,MUST,(none: not executable in model),False,False,,CommitmentDiscountId MUST be null when a charge is not related to a commitment discount.
+CommitmentDiscountId-C-005-C,columns,CommitmentDiscountId,Nullability,MUST NOT,(none: not executable in model),False,False,,CommitmentDiscountId MUST NOT be null when a charge is related to a commitment discount.
+CommitmentDiscountId-C-007-M,columns,CommitmentDiscountId,Validation,MUST,(none: not executable in model),False,False,,CommitmentDiscountId MUST be a unique identifier within the provider.
+CommitmentDiscountName-C-001-M,columns,CommitmentDiscountName,Type,MUST,TypeString,False,False,,CommitmentDiscountName MUST be of type String.
+CommitmentDiscountName-C-002-M,columns,CommitmentDiscountName,Format,MUST,FormatString,False,False,,CommitmentDiscountName MUST conform to StringHandling requirements.
+CommitmentDiscountName-C-006-C,columns,CommitmentDiscountName,Nullability,MUST NOT,(none: not executable in model),False,False,,CommitmentDiscountName MUST NOT be null when a display name can be assigned to a commitment discount.
+CommitmentDiscountQuantity-C-001-M,columns,CommitmentDiscountQuantity,Type,MUST,TypeDecimal,False,False,,CommitmentDiscountQuantity MUST be of type Decimal.
+CommitmentDiscountQuantity-C-002-M,columns,CommitmentDiscountQuantity,Format,MUST,FormatNumeric,False,False,,CommitmentDiscountQuantity MUST conform to NumericFormat requirements.
+CommitmentDiscountQuantity-C-009-M,columns,CommitmentDiscountQuantity,Validation,MUST,(none: not executable in model),False,False,,CommitmentDiscountQuantity MUST be a valid decimal value.
+CommitmentDiscountQuantity-C-011-C,columns,CommitmentDiscountQuantity,Validation,MUST,(none: not executable in model),True,False,,"CommitmentDiscountQuantity MUST be the quantity of CommitmentDiscountUnit, paid fully or partially upfront, that is eligible for consumption over the commitment discount's term when ChargeFrequency is ""One-Time""."
+CommitmentDiscountQuantity-C-012-C,columns,CommitmentDiscountQuantity,Validation,MUST,(none: not executable in model),True,False,,"CommitmentDiscountQuantity MUST be the quantity of CommitmentDiscountUnit that is eligible for consumption for each charge period that corresponds with the purchase when ChargeFrequency is ""Recurring""."
+CommitmentDiscountQuantity-C-014-C,columns,CommitmentDiscountQuantity,Validation,MUST,(none: not executable in model),True,False,,"CommitmentDiscountQuantity MUST be the metered quantity of CommitmentDiscountUnit that is consumed in a given charge period when CommitmentDiscountStatus is ""Used""."
+CommitmentDiscountQuantity-C-015-C,columns,CommitmentDiscountQuantity,Validation,MUST,(none: not executable in model),True,False,,"CommitmentDiscountQuantity MUST be the remaining, unused quantity of CommitmentDiscountUnit in a given charge period when CommitmentDiscountStatus is ""Unused""."
+CommitmentDiscountStatus-C-001-M,columns,CommitmentDiscountStatus,Type,MUST,TypeString,False,False,,CommitmentDiscountStatus MUST be of type String.
+CommitmentDiscountType-C-001-M,columns,CommitmentDiscountType,Type,MUST,TypeString,False,False,,CommitmentDiscountType MUST be of type String.
+CommitmentDiscountType-C-002-M,columns,CommitmentDiscountType,Format,MUST,FormatString,False,False,,CommitmentDiscountType MUST conform to StringHandling requirements.
+CommitmentDiscountUnit-C-001-M,columns,CommitmentDiscountUnit,Type,MUST,TypeString,False,False,,CommitmentDiscountUnit MUST be of type String.
+CommitmentDiscountUnit-C-002-M,columns,CommitmentDiscountUnit,Format,MUST,FormatString,False,False,,CommitmentDiscountUnit MUST conform to StringHandling requirements.
+CommitmentDiscountUnit-C-008-M,columns,CommitmentDiscountUnit,Validation,MUST,(none: not executable in model),False,False,,CommitmentDiscountUnit MUST remain consistent over time for a given CommitmentDiscountId.
+CommitmentDiscountUnit-C-009-M,columns,CommitmentDiscountUnit,Validation,MUST,(none: not executable in model),False,False,,CommitmentDiscountUnit MUST represent the unit used to measure the commitment discount.
+ConsumedQuantity-C-001-M,columns,ConsumedQuantity,Type,MUST,TypeDecimal,False,False,,ConsumedQuantity MUST be of type Decimal.
+ConsumedQuantity-C-002-M,columns,ConsumedQuantity,Format,MUST,FormatNumeric,False,False,,ConsumedQuantity MUST conform to NumericFormat requirements.
+ConsumedQuantity-C-008-C,columns,ConsumedQuantity,Validation,MUST,(none: not executable in model),True,False,,ConsumedQuantity MUST be a valid decimal value when not null.
+ConsumedUnit-C-001-M,columns,ConsumedUnit,Type,MUST,TypeString,False,False,,ConsumedUnit MUST be of type String.
+ConsumedUnit-C-002-M,columns,ConsumedUnit,Format,MUST,FormatString,False,False,,ConsumedUnit MUST conform to StringHandling requirements.
+ContractedCost-C-001-M,columns,ContractedCost,Type,MUST,TypeDecimal,False,False,,ContractedCost MUST be of type Decimal.
+ContractedCost-C-002-M,columns,ContractedCost,Format,MUST,FormatNumeric,False,False,,ContractedCost MUST conform to NumericFormat requirements.
+ContractedCost-C-004-M,columns,ContractedCost,Validation,MUST,CheckNotValue,False,False,,ContractedCost MUST be a valid decimal value.
+ContractedCost-C-005-M,columns,ContractedCost,Validation,MUST,(none: not executable in model),False,False,,ContractedCost MUST be denominated in the BillingCurrency.
+ContractedCost-C-007-C,columns,ContractedCost,Validation,MUST,(none: not executable in model),False,False,,"ContractedCost of a charge calculated based on other charges (e.g., when the ChargeCategory is ""Tax"") MUST be calculated based on the ContractedCost of those related charges."
+ContractedCost-C-008-C,columns,ContractedCost,Validation,MUST,(none: not executable in model),False,False,,"ContractedCost of a charge unrelated to other charges (e.g., when the ChargeCategory is ""Credit"") MUST match the BilledCost."
+ContractedUnitPrice-C-002-M,columns,ContractedUnitPrice,Type,MUST,TypeDecimal,False,False,,ContractedUnitPrice MUST be of type Decimal.
+ContractedUnitPrice-C-003-M,columns,ContractedUnitPrice,Format,MUST,FormatNumeric,False,False,,ContractedUnitPrice MUST conform to NumericFormat requirements.
+ContractedUnitPrice-C-010-C,columns,ContractedUnitPrice,Validation,MUST,(none: not executable in model),True,False,,ContractedUnitPrice MUST be denominated in the BillingCurrency.
+ContractedUnitPrice-C-011-C,columns,ContractedUnitPrice,Validation,MUST,ColumnByColumnEqualsColumnValue,True,False,,"The product of ContractedUnitPrice and PricingQuantity MUST match the ContractedCost when PricingQuantity is not null and ChargeClass is not ""Correction""."
+EffectiveCost-C-001-M,columns,EffectiveCost,Type,MUST,TypeDecimal,False,False,,EffectiveCost MUST be of type Decimal.
+EffectiveCost-C-002-M,columns,EffectiveCost,Format,MUST,FormatNumeric,False,False,,EffectiveCost MUST conform to NumericFormat requirements.
+EffectiveCost-C-004-M,columns,EffectiveCost,Validation,MUST,CheckNotValue,False,False,,EffectiveCost MUST be a valid decimal value.
+EffectiveCost-C-005-C,columns,EffectiveCost,Validation,MUST,CheckValue,True,False,,"EffectiveCost MUST be 0 when ChargeCategory is ""Purchase"" and the purchase is intended to cover future eligible charges."
+EffectiveCost-C-006-M,columns,EffectiveCost,Validation,MUST,(none: not executable in model),False,False,,EffectiveCost MUST be denominated in the BillingCurrency.
+EffectiveCost-C-009-C,columns,EffectiveCost,Validation,MUST,(none: not executable in model),False,False,,"EffectiveCost of a charge calculated based on other charges (e.g., when the ChargeCategory is ""Tax"") MUST be calculated based on the EffectiveCost of those related charges."
+EffectiveCost-C-010-C,columns,EffectiveCost,Validation,MUST,(none: not executable in model),False,False,,"EffectiveCost of a charge unrelated to other charges (e.g., when the ChargeCategory is ""Credit"") MUST match the BilledCost."
+InvoiceId-C-001-M,columns,InvoiceId,Type,MUST,TypeString,False,False,,InvoiceId MUST be of type String.
+InvoiceId-C-002-M,columns,InvoiceId,Format,MUST,FormatString,False,False,,InvoiceId MUST conform to StringHandling requirements.
+InvoiceId-C-004-C,columns,InvoiceId,Nullability,MUST,CheckValue,False,False,,InvoiceId MUST be null when the charge is not associated either with an invoice or with a pre-generated provisional invoice.
+InvoiceId-C-005-C,columns,InvoiceId,Nullability,MUST NOT,CheckNotValue,False,False,,InvoiceId MUST NOT be null when the charge is associated with either an issued invoice or a pre-generated provisional invoice.
+InvoiceId-C-007-C,columns,InvoiceId,Validation,MUST,(none: not executable in model),False,False,,InvoiceId MUST be associated with the related charge and BillingAccountId when a pre-generated invoice or provisional invoice exists.
+InvoiceIssuerName-C-001-M,columns,InvoiceIssuerName,Type,MUST,TypeString,False,False,,InvoiceIssuerName MUST be of type String.
+InvoiceIssuerName-C-002-M,columns,InvoiceIssuerName,Format,MUST,FormatString,False,False,,InvoiceIssuerName MUST conform to StringHandling requirements.
+ListCost-C-001-M,columns,ListCost,Type,MUST,TypeDecimal,False,False,,ListCost MUST be of type Decimal.
+ListCost-C-002-M,columns,ListCost,Format,MUST,FormatNumeric,False,False,,ListCost MUST conform to NumericFormat requirements.
+ListCost-C-004-M,columns,ListCost,Validation,MUST,CheckNotValue,False,False,,ListCost MUST be a valid decimal value.
+ListCost-C-005-M,columns,ListCost,Validation,MUST,(none: not executable in model),False,False,,ListCost MUST be denominated in the BillingCurrency.
+ListCost-C-007-C,columns,ListCost,Validation,MUST,(none: not executable in model),False,False,,"ListCost of a charge calculated based on other charges (e.g., when the ChargeCategory is ""Tax"") MUST be calculated based on the ListCost of those related charges."
+ListCost-C-008-C,columns,ListCost,Validation,MUST,(none: not executable in model),False,False,,"ListCost of a charge unrelated to other charges (e.g., when the ChargeCategory is ""Credit"") MUST match the BilledCost."
+ListUnitPrice-C-001-M,columns,ListUnitPrice,Type,MUST,TypeDecimal,False,False,,ListUnitPrice MUST be of type Decimal.
+ListUnitPrice-C-002-M,columns,ListUnitPrice,Format,MUST,FormatNumeric,False,False,,ListUnitPrice MUST conform to NumericFormat requirements.
+ListUnitPrice-C-009-M,columns,ListUnitPrice,Validation,MUST,(none: not executable in model),False,False,,ListUnitPrice MUST be denominated in the BillingCurrency.
+PricingCategory-C-001-M,columns,PricingCategory,Type,MUST,TypeString,False,False,,PricingCategory MUST be of type String.
+PricingCategory-C-008-C,columns,PricingCategory,Validation,MUST,(none: not executable in model),True,False,,"PricingCategory MUST be ""Standard"" when pricing is predetermined at the agreed upon rate for the billing account."
+PricingCategory-C-009-C,columns,PricingCategory,Validation,MUST,(none: not executable in model),False,False,,"PricingCategory MUST be ""Committed"" when the charge is subject to an existing commitment discount and is not the purchase of the commitment discount."
+PricingCategory-C-010-C,columns,PricingCategory,Validation,MUST,(none: not executable in model),False,False,,"PricingCategory MUST be ""Dynamic"" when pricing is determined by the provider and may change over time, regardless of predetermined agreement pricing."
+PricingCategory-C-011-C,columns,PricingCategory,Validation,MUST,(none: not executable in model),False,False,,"PricingCategory MUST be ""Other"" when there is a pricing model but none of the allowed values apply."
+PricingCurrency-C-001-M,columns,PricingCurrency,Type,MUST,TypeString,False,False,,PricingCurrency MUST be of type String.
+PricingCurrency-C-002-M,columns,PricingCurrency,Format,MUST,FormatString,False,False,,PricingCurrency MUST conform to StringHandling requirements.
+PricingCurrency-C-003-M,columns,PricingCurrency,Format,MUST,FormatCurrency,False,False,,PricingCurrency MUST conform to CurrencyFormat requirements.
+PricingCurrencyContractedUnitPrice-C-001-M,columns,PricingCurrencyContractedUnitPrice,Type,MUST,TypeDecimal,False,False,,PricingCurrencyContractedUnitPrice MUST be of type Decimal.
+PricingCurrencyContractedUnitPrice-C-002-M,columns,PricingCurrencyContractedUnitPrice,Format,MUST,FormatNumeric,False,False,,PricingCurrencyContractedUnitPrice MUST conform to NumericFormat requirements.
+PricingCurrencyContractedUnitPrice-C-009-C,columns,PricingCurrencyContractedUnitPrice,Validation,MUST,(none: not executable in model),True,False,,PricingCurrencyContractedUnitPrice MUST be denominated in the PricingCurrency.
+PricingCurrencyEffectiveCost-C-001-M,columns,PricingCurrencyEffectiveCost,Type,MUST,TypeDecimal,False,False,,PricingCurrencyEffectiveCost MUST be of type Decimal.
+PricingCurrencyEffectiveCost-C-002-M,columns,PricingCurrencyEffectiveCost,Format,MUST,FormatNumeric,False,False,,PricingCurrencyEffectiveCost MUST conform to NumericFormat requirements.
+PricingCurrencyEffectiveCost-C-004-M,columns,PricingCurrencyEffectiveCost,Validation,MUST,CheckGreaterOrEqualThanValue,False,False,,PricingCurrencyEffectiveCost MUST be a valid decimal value.
+PricingCurrencyEffectiveCost-C-005-M,columns,PricingCurrencyEffectiveCost,Validation,MUST,(none: not executable in model),False,False,,PricingCurrencyEffectiveCost MUST be 0 in the event of prepaid purchases or purchases that are applicable to previous usage.
+PricingCurrencyEffectiveCost-C-006-M,columns,PricingCurrencyEffectiveCost,Validation,MUST,(none: not executable in model),False,False,,PricingCurrencyEffectiveCost MUST be denominated in the PricingCurrency.
+PricingCurrencyListUnitPrice-C-001-M,columns,PricingCurrencyListUnitPrice,Type,MUST,TypeDecimal,False,False,,PricingCurrencyListUnitPrice MUST be of type Decimal.
+PricingCurrencyListUnitPrice-C-002-M,columns,PricingCurrencyListUnitPrice,Format,MUST,FormatNumeric,False,False,,PricingCurrencyListUnitPrice MUST conform to NumericFormat requirements.
+PricingCurrencyListUnitPrice-C-009-M,columns,PricingCurrencyListUnitPrice,Validation,MUST,(none: not executable in model),False,False,,PricingCurrencyListUnitPrice MUST be denominated in the PricingCurrency.
+PricingQuantity-C-001-M,columns,PricingQuantity,Type,MUST,TypeDecimal,False,False,,PricingQuantity MUST be of type Decimal.
+PricingQuantity-C-002-M,columns,PricingQuantity,Format,MUST,FormatNumeric,False,False,,PricingQuantity MUST conform to NumericFormat requirements.
+PricingQuantity-C-008-M,columns,PricingQuantity,Validation,MUST,CheckNotValue,False,False,,PricingQuantity MUST be a valid decimal value.
+PricingQuantity-C-009-C,columns,PricingQuantity,Validation,MUST,(none: not executable in model),False,False,,"The product of PricingQuantity and a unit price (e.g., ContractedUnitPrice) MUST match the corresponding cost metric (e.g., ContractedCost) when the unit price is not null and ChargeClass is not ""Correction""."
+PricingUnit-C-001-M,columns,PricingUnit,Type,MUST,TypeString,False,False,,PricingUnit MUST be of type String.
+PricingUnit-C-002-M,columns,PricingUnit,Format,MUST,FormatString,False,False,,PricingUnit MUST conform to StringHandling requirements.
+PricingUnit-C-008-M,columns,PricingUnit,Validation,MUST,(none: not executable in model),False,False,,PricingUnit MUST be semantically equal to the corresponding pricing measurement unit provided in provider-published price list.
+PricingUnit-C-009-C,columns,PricingUnit,Validation,MUST,(none: not executable in model),False,False,,"PricingUnit MUST be semantically equal to the corresponding pricing measurement unit provided in invoice, when the invoice includes a pricing measurement unit."
+ProviderName-C-001-M,columns,ProviderName,Type,MUST,TypeString,False,False,,ProviderName MUST be of type String.
+ProviderName-C-002-M,columns,ProviderName,Format,MUST,FormatString,False,False,,ProviderName MUST conform to StringHandling requirements.
+PublisherName-C-001-M,columns,PublisherName,Type,MUST,TypeString,False,False,,PublisherName MUST be of type String.
+PublisherName-C-002-M,columns,PublisherName,Format,MUST,FormatString,False,False,,PublisherName MUST conform to StringHandling requirements.
+RegionId-C-001-M,columns,RegionId,Type,MUST,TypeString,False,False,,RegionId MUST be of type String.
+RegionId-C-002-M,columns,RegionId,Format,MUST,FormatString,False,False,,RegionId MUST conform to StringHandling requirements.
+RegionId-C-004-C,columns,RegionId,Nullability,MUST NOT,(none: not executable in model),False,False,,RegionId MUST NOT be null when a resource or service is operated in or managed from a distinct region.
+RegionName-C-001-M,columns,RegionName,Type,MUST,TypeString,False,False,,RegionName MUST be of type String.
+RegionName-C-002-M,columns,RegionName,Format,MUST,FormatString,False,False,,RegionName MUST conform to StringHandling requirements.
+ResourceId-C-001-M,columns,ResourceId,Type,MUST,TypeString,False,False,,ResourceId MUST be of type String.
+ResourceId-C-002-M,columns,ResourceId,Format,MUST,FormatString,False,False,,ResourceId MUST conform to StringHandling requirements.
+ResourceId-C-004-C,columns,ResourceId,Nullability,MUST,(none: not executable in model),False,False,,ResourceId MUST be null when a charge is not related to a resource.
+ResourceId-C-005-C,columns,ResourceId,Nullability,MUST NOT,(none: not executable in model),False,False,,ResourceId MUST NOT be null when a charge is related to a resource.
+ResourceId-C-007-M,columns,ResourceId,Validation,MUST,(none: not executable in model),False,False,,ResourceId MUST be a unique identifier within the provider.
+ResourceName-C-001-M,columns,ResourceName,Type,MUST,TypeString,False,False,,ResourceName MUST be of type String.
+ResourceName-C-002-M,columns,ResourceName,Format,MUST,FormatString,False,False,,ResourceName MUST conform to StringHandling requirements.
+ResourceName-C-005-C,columns,ResourceName,Nullability,MUST NOT,(none: not executable in model),True,False,,ResourceName MUST NOT be null when ResourceId is not null and the resource has an assigned display name.
+ResourceType-C-001-M,columns,ResourceType,Type,MUST,TypeString,False,False,,ResourceType MUST be of type String.
+ResourceType-C-002-M,columns,ResourceType,Format,MUST,FormatString,False,False,,ResourceType MUST conform to StringHandling requirements.
+ServiceCategory-C-001-M,columns,ServiceCategory,Type,MUST,TypeString,False,False,,ServiceCategory MUST be of type String.
+ServiceName-C-001-M,columns,ServiceName,Type,MUST,TypeString,False,False,,ServiceName MUST be of type String.
+ServiceName-C-002-M,columns,ServiceName,Format,MUST,FormatString,False,False,,ServiceName MUST conform to StringHandling requirements.
+ServiceName-C-005-C,columns,ServiceName,Validation,MUST,CheckDistinctCount,False,False,,"ServiceName MUST have one and only one ServiceCategory that best aligns with its primary purpose, except when no suitable ServiceCategory is available."
+ServiceName-C-006-C,columns,ServiceName,Validation,MUST,(none: not executable in model),False,False,,"ServiceName MUST be associated with the ServiceCategory ""Other"" when no suitable ServiceCategory is available."
+ServiceSubcategory-C-001-M,columns,ServiceSubcategory,Type,MUST,TypeString,False,False,,ServiceSubcategory MUST be of type String.
+ServiceSubcategory-C-004-M,columns,ServiceSubcategory,Validation,MUST,OR,False,False,,ServiceSubcategory MUST have one and only one parent ServiceCategory as specified in the allowed values below.
+SkuId-C-001-M,columns,SkuId,Type,MUST,TypeString,False,False,,SkuId MUST be of type String.
+SkuId-C-002-M,columns,SkuId,Format,MUST,FormatString,False,False,,SkuId MUST conform to StringHandling requirements.
+SkuId-C-008-M,columns,SkuId,Validation,MUST,(none: not executable in model),False,False,,SkuId MUST remain consistent across billing accounts or contracts.
+SkuId-C-009-M,columns,SkuId,Validation,MUST,(none: not executable in model),False,False,,SkuId MUST remain consistent across PricingCategory values.
+SkuId-C-010-M,columns,SkuId,Validation,MUST,(none: not executable in model),False,False,,SkuId MUST remain consistent regardless of any other factors that might impact the price but do not affect the functionality of the SKU.
+SkuId-C-011-C,columns,SkuId,Validation,MUST,(none: not executable in model),True,False,,"SkuId MUST be associated with a given resource or service when ChargeCategory is ""Usage"" or ""Purchase""."
+SkuMeter-C-001-M,columns,SkuMeter,Type,MUST,TypeString,False,False,,SkuMeter MUST be of type String.
+SkuMeter-C-002-M,columns,SkuMeter,Format,MUST,FormatString,False,False,,SkuMeter MUST conform to StringHandling requirements.
+SkuPriceDetails-C-001-M,columns,SkuPriceDetails,Format,MUST,FormatKeyValue,False,False,,SkuPriceDetails MUST conform to KeyValueFormat requirements.
+SkuPriceDetails-C-007-M,columns,SkuPriceDetails,Validation,MUST,(none: not executable in model),False,False,,SkuPriceDetails MUST be associated with a given SkuPriceId.
+SkuPriceDetails-C-008-M,columns,SkuPriceDetails,Validation,MUST NOT,(none: not executable in model),False,False,,SkuPriceDetails MUST NOT include properties that are not applicable to the corresponding SkuPriceId.
+SkuPriceDetails-C-010-C,columns,SkuPriceDetails,Validation,MUST,(none: not executable in model),False,False,,SkuPriceDetails MUST include the FOCUS-defined SKU Price property when an equivalent property is included as a Provider-defined property.
+SkuPriceDetails-C-018-C,columns,SkuPriceDetails,Validation,MUST,(none: not executable in model),False,False,,Property value MUST represent the value for a single PricingUnit when the property holds a numeric value.
+SkuPriceDetails-C-020-M,columns,SkuPriceDetails,Format,MUST,(none: not executable in model),False,False,,Property key MUST match the spelling and casing specified for the FOCUS-defined property.
+SkuPriceDetails-C-022-C,columns,SkuPriceDetails,Validation,MUST,(none: not executable in model),False,False,,"Property value MUST represent the value for a single PricingUnit, denominated in the unit of measure specified for that property when the property holds a numeric value."
+SkuPriceId-C-001-M,columns,SkuPriceId,Type,MUST,TypeString,False,False,,SkuPriceId MUST be of type String.
+SkuPriceId-C-002-M,columns,SkuPriceId,Format,MUST,FormatString,False,False,,SkuPriceId MUST conform to StringHandling requirements.
+SkuPriceId-C-008-M,columns,SkuPriceId,Validation,MUST,CheckDistinctCount,False,False,,SkuPriceId MUST have one and only one parent SkuId.
+SkuPriceId-C-009-M,columns,SkuPriceId,Validation,MUST,(none: not executable in model),False,False,,SkuPriceId MUST remain consistent over time.
+SkuPriceId-C-010-M,columns,SkuPriceId,Validation,MUST,(none: not executable in model),False,False,,SkuPriceId MUST remain consistent across billing accounts or contracts.
+SkuPriceId-C-012-C,columns,SkuPriceId,Validation,MUST,(none: not executable in model),True,False,,"SkuPriceId MUST be associated with a given resource or service when ChargeCategory is ""Usage"" or ""Purchase""."
+SkuPriceId-C-013-M,columns,SkuPriceId,Validation,MUST,(none: not executable in model),False,False,,"SkuPriceId MUST reference a SKU Price in a provider-supplied price list, enabling the lookup of detailed information about the SKU Price."
+SkuPriceId-C-014-C,columns,SkuPriceId,Validation,MUST,(none: not executable in model),False,True,,SkuPriceId MUST support the lookup of the ListUnitPrice when the provider publishes unit prices exclusive of discounts.
+SkuPriceId-C-015-C,columns,SkuPriceId,Validation,MUST,(none: not executable in model),False,True,,SkuPriceId MUST support the verification of the given ContractedUnitPrice when the provider supports negotiated pricing concepts.
+SubAccountId-C-001-M,columns,SubAccountId,Type,MUST,TypeString,False,False,,SubAccountId MUST be of type String.
+SubAccountId-C-002-M,columns,SubAccountId,Format,MUST,FormatString,False,False,,SubAccountId MUST conform to StringHandling requirements.
+SubAccountId-C-004-C,columns,SubAccountId,Nullability,MUST,(none: not executable in model),False,False,,SubAccountId MUST be null when a charge is not related to a sub account.
+SubAccountId-C-005-C,columns,SubAccountId,Nullability,MUST NOT,(none: not executable in model),False,False,,SubAccountId MUST NOT be null when a charge is related to a sub account.
+SubAccountName-C-001-M,columns,SubAccountName,Type,MUST,TypeString,False,False,,SubAccountName MUST be of type String.
+SubAccountName-C-002-M,columns,SubAccountName,Format,MUST,FormatString,False,False,,SubAccountName MUST conform to StringHandling requirements.
+SubAccountType-C-001-M,columns,SubAccountType,Type,MUST,TypeString,False,False,,SubAccountType MUST be of type String.
+SubAccountType-C-002-M,columns,SubAccountType,Format,MUST,FormatString,False,False,,SubAccountType MUST conform to StringHandling requirements.
+SubAccountType-C-006-M,columns,SubAccountType,Validation,MUST,(none: not executable in model),False,False,,"SubAccountType MUST be a consistent, readable display value."
+Tags-C-001-M,columns,Tags,Format,MUST,FormatKeyValue,False,False,,Tags MUST conform to KeyValueFormat requirements.
+Tags-C-004-M,columns,Tags,Validation,MUST,(none: not executable in model),False,False,,Tags MUST include all user-defined and provider-defined tags.
+Tags-C-005-M,columns,Tags,Validation,MUST,(none: not executable in model),False,False,,Tags MUST only include finalized tags.
+Tags-C-008-M,columns,Tags,Validation,MUST,(none: not executable in model),False,False,,"Tag keys that do not support corresponding values, MUST have a corresponding true (boolean) value set."
+Tags-C-010-C,columns,Tags,Validation,MUST NOT,(none: not executable in model),False,False,,Provider MUST NOT alter tag values unless applying true (boolean) to valueless tags.
+Tags-C-012-M,columns,Tags,Validation,MUST,(none: not executable in model),False,False,,"Provider-defined tag keys MUST be prefixed with a predetermined, provider-specified tag key prefix that is unique to each corresponding provider-specified tag scheme."
+Tags-C-015-C,columns,Tags,Validation,MUST,(none: not executable in model),False,False,,"Provider MUST prefix all but one user-defined tag scheme with a predetermined, provider-specified tag key prefix that is unique to each corresponding user-defined tag scheme when the provider has more than one user-defined tag scheme."
+Tags-C-016-C,columns,Tags,Validation,MUST NOT,(none: not executable in model),False,False,,Provider MUST NOT prefix tag keys when the provider has only one user-defined tag scheme.
+Tags-C-017-M,columns,Tags,Validation,MUST NOT,(none: not executable in model),False,False,,Provider MUST NOT allow reserved tag key prefixes to be used as prefixes for any user-defined tag keys within a prefixless user-defined tag scheme.
+CostAndUsage-D-004-C,datasets,ListUnitPrice,Presence,MUST,ColumnPresent,False,True,,ListUnitPrice MUST be present in a FOCUS dataset when the provider publishes unit prices exclusive of discounts.
+CostAndUsage-D-007-C,datasets,BillingAccountType,Presence,MUST,ColumnPresent,False,True,,BillingAccountType MUST be present in a FOCUS dataset when the provider supports more than one possible BillingAccountType value.
+CostAndUsage-D-011-C,datasets,ConsumedQuantity,Presence,MUST,ColumnPresent,False,True,,ConsumedQuantity MUST be present in a FOCUS dataset when the provider supports the measurement of usage.
+CostAndUsage-D-012-C,datasets,CommitmentDiscountName,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountName MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-013-C,datasets,CommitmentDiscountId,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountId MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-014-C,datasets,CommitmentDiscountType,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountType MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-015-C,datasets,CommitmentDiscountUnit,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountUnit MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-016-C,datasets,CommitmentDiscountCategory,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountCategory MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-017-C,datasets,CommitmentDiscountStatus,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountStatus MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-018-C,datasets,CommitmentDiscountQuantity,Presence,MUST,ColumnPresent,False,True,,CommitmentDiscountQuantity MUST be present in a FOCUS dataset when the provider supports commitment discounts.
+CostAndUsage-D-019-C,datasets,SubAccountId,Presence,MUST,ColumnPresent,False,True,,SubAccountId MUST be present in a FOCUS dataset when the provider supports a sub account construct.
+CostAndUsage-D-020-C,datasets,CapacityReservationStatus,Presence,MUST,ColumnPresent,False,True,,CapacityReservationStatus MUST be present in a FOCUS dataset when the provider supports capacity reservations.
+CostAndUsage-D-022-C,datasets,PricingCategory,Presence,MUST,ColumnPresent,False,True,,PricingCategory MUST be present in a FOCUS dataset when the provider supports more than one pricing category across all SKUs.
+CostAndUsage-D-029-C,datasets,SubAccountName,Presence,MUST,ColumnPresent,False,True,,SubAccountName MUST be present in a FOCUS dataset when the provider supports a sub account construct.
+CostAndUsage-D-034-C,datasets,ContractedUnitPrice,Presence,MUST,ColumnPresent,False,True,,ContractedUnitPrice MUST be present in a FOCUS dataset when the provider supports negotiated pricing concepts.
+CostAndUsage-D-039-C,datasets,ResourceType,Presence,MUST,ColumnPresent,False,True,,ResourceType MUST be present in a FOCUS dataset when the provider supports billing based on provisioned resources and supports assigning types to resources.
+CostAndUsage-D-043-C,datasets,ResourceId,Presence,MUST,ColumnPresent,False,True,,ResourceId MUST be present in a FOCUS dataset when the provider supports billing based on provisioned resources.
+CostAndUsage-D-044-C,datasets,ResourceName,Presence,MUST,ColumnPresent,False,True,,ResourceName MUST be present in a FOCUS dataset when the provider supports billing based on provisioned resources.
+CostAndUsage-D-045-C,datasets,PricingCurrency,Presence,MUST,ColumnPresent,False,True,,PricingCurrency MUST be present in a FOCUS dataset when the provider supports pricing and billing in different currencies.
+CostAndUsage-D-047-C,datasets,PricingCurrencyContractedUnitPrice,Presence,MUST,ColumnPresent,False,True,,PricingCurrencyContractedUnitPrice MUST be present in a FOCUS dataset when the provider supports prices in virtual currency and publishes unit prices exclusive of discounts.
+CostAndUsage-D-051-C,datasets,PricingCurrencyEffectiveCost,Presence,MUST,ColumnPresent,False,True,,PricingCurrencyEffectiveCost MUST be present in a FOCUS dataset when the provider supports prices in virtual currency and publishes unit prices exclusive of discounts.
+CostAndUsage-D-055-C,datasets,PricingCurrencyListUnitPrice,Presence,MUST,ColumnPresent,False,True,,PricingCurrencyListUnitPrice MUST be present in a FOCUS dataset when the provider supports prices in virtual currency and publishes unit prices exclusive of discounts.
+CostAndUsage-D-058-C,datasets,SkuPriceId,Presence,MUST,ColumnPresent,False,True,,"SkuPriceId MUST be present in a FOCUS dataset when the provider supports unit pricing concepts and publishes price lists, publicly or as part of contracting."
+CostAndUsage-D-059-C,datasets,SkuMeter,Presence,MUST,ColumnPresent,False,True,,"SkuMeter MUST be present in a FOCUS dataset when the provider supports unit pricing concepts and publishes price lists, publicly or as part of contracting."
+CostAndUsage-D-060-C,datasets,SkuId,Presence,MUST,ColumnPresent,False,True,,"SkuId MUST be present in a FOCUS dataset when the provider supports unit pricing concepts and publishes price lists, publicly or as part of contracting."
+CostAndUsage-D-061-C,datasets,SkuPriceDetails,Presence,MUST,ColumnPresent,False,True,,"SkuPriceDetails MUST be present in a FOCUS dataset when the provider supports unit pricing concepts and publishes price lists, publicly or as part of contracting."
+CostAndUsage-D-062-C,datasets,RegionName,Presence,MUST,ColumnPresent,False,True,,RegionName MUST be present in a FOCUS dataset when the provider supports deploying resources or services within a region.
+CostAndUsage-D-063-C,datasets,RegionId,Presence,MUST,ColumnPresent,False,True,,RegionId MUST be present in a FOCUS dataset when the provider supports deploying resources or services within a region.
+CostAndUsage-D-064-C,datasets,Tags,Presence,MUST,ColumnPresent,False,True,,Tags MUST be present in a FOCUS dataset when the provider supports setting user or provider-defined tags.
+CostAndUsage-D-065-C,datasets,CapacityReservationId,Presence,MUST,ColumnPresent,False,True,,CapacityReservationId MUST be present in a FOCUS dataset when the provider supports capacity reservations.
+CostAndUsage-D-066-C,datasets,ConsumedUnit,Presence,MUST,ColumnPresent,False,True,,ConsumedUnit MUST be present in a FOCUS dataset when the provider supports the measurement of usage.
+CostAndUsage-D-067-C,datasets,SubAccountType,Presence,MUST,ColumnPresent,False,True,,SubAccountType MUST be present in a FOCUS dataset when the provider supports more than one possible SubAccountType value.
